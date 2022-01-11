@@ -10,6 +10,11 @@ namespace MemoryCardGame
     {
         public char symbol;
         public bool isFlipped;
+
+        /// <summary>
+        /// init Card with a symbol
+        /// </summary>
+        /// <param name="sym">symbolic value for the card</param>
         public Card(char sym)
         {
             symbol = sym;

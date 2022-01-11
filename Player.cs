@@ -11,6 +11,11 @@ namespace MemoryCardGame
         public string Name;
         public int Score;
         public int Fails;
+
+        /// <summary>
+        /// init Player with a name
+        /// </summary>
+        /// <param name="name"></param>
         public Player(string name)
         {
             Name = name;
