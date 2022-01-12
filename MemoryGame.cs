@@ -18,6 +18,7 @@ namespace MemoryCardGame
 
         private static Random random = new Random();
         private static readonly string characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        private static readonly string title = "Card memory game";
 
         private Card[,] MatrixMemoryGame;
         private Player[] Players;
@@ -69,14 +70,14 @@ namespace MemoryCardGame
 
             Console.Clear();
 
-            Console.Title = "Cards memory game";
+            Console.Title = title;
 
             ConfigureGame();
             ConfigurePlayers();
 
             Console.BackgroundColor = ConsoleColor.Green;
             Console.ForegroundColor = ConsoleColor.Black;
-            Console.WriteLine("Game has started");
+            Console.WriteLine("\nGame has started");
             Console.ResetColor();
 
             GameStart = DateTime.UtcNow;
@@ -116,11 +117,13 @@ namespace MemoryCardGame
         /// <summary>
         /// ReadLine Input.
         /// Let the client configure the game Rows and Columns.
+        /// Maximum is 10x10.
         /// </summary>
         public void ConfigureGame()
         {
-            Console.BackgroundColor = ConsoleColor.DarkBlue;
-            Console.Write("How many rows and columns the card game will have (example \"4x6\"): ");
+            Console.BackgroundColor = ConsoleColor.Yellow;
+            Console.ForegroundColor = ConsoleColor.Black;
+            Console.Write("Enter the desired Rows and Columns (e.g 3x4, max config 10x10): ");
             Console.ResetColor();
             string[] config = Console.ReadLine().Split("x");
 
@@ -135,10 +138,21 @@ namespace MemoryCardGame
             catch(Exception)
             {
                 ConfigureGame();
+                return;
             }
+
+            
 
             if (rows * columns % 2 != 0)
                 columns++;
+
+            if (rows > 10)
+                rows = 10;
+
+            if (columns > 10)
+                columns = 10;
+
+            Console.Title = title + " " + rows + "x" + columns;
 
             MatrixMemoryGame = GenerateMartixTable(rows, columns);
         }
@@ -290,7 +304,7 @@ namespace MemoryCardGame
         public void ConfigurePlayers()
         {
             Console.BackgroundColor = ConsoleColor.DarkBlue;
-            Console.Write("Enter the amount of players: ");
+            Console.Write("\nEnter the amount of players: ");
             Console.ResetColor();
 
             int player_num = 0;
@@ -302,6 +316,7 @@ namespace MemoryCardGame
             catch(Exception)
             {
                 ConfigurePlayers();
+                return;
             }
 
             Players = new Player[player_num];
@@ -309,7 +324,7 @@ namespace MemoryCardGame
             for (int i = 0; i < Players.Length; i++)
             {
                 Console.BackgroundColor = ConsoleColor.DarkBlue;
-                Console.Write("Enter a name for player {0}: ", i + 1);
+                Console.Write("\nEnter a name for player {0}: ", i + 1);
                 Console.ResetColor();
                 string name = Console.ReadLine();
                 Players[i] = new Player(name);
