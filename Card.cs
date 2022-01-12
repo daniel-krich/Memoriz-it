@@ -10,6 +10,7 @@ namespace MemoryCardGame
     {
         public char symbol;
         public bool isFlipped;
+        public bool isHidden;
 
         /// <summary>
         /// init Card with a symbol
@@ -19,6 +20,14 @@ namespace MemoryCardGame
         {
             symbol = sym;
             isFlipped = false;
+        }
+
+        /// <summary>
+        /// Hides the card
+        /// </summary>
+        public void Hide()
+        {
+            isHidden = true;
         }
 
         /// <summary>

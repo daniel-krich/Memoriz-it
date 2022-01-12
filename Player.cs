@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MemoryCardGame
 {
-    public class Player
+    public class Player : IComparable
     {
         public string Name;
         public int Score;
@@ -47,6 +47,20 @@ namespace MemoryCardGame
         public void Fail()
         {
             Fails++;
+        }
+
+
+        /// <summary>
+        /// Compare function for IComparable interface.
+        /// We want to compare scores.
+        /// </summary>
+        /// <param name="obj">object to compare to</param>
+        /// <returns></returns>
+        public int CompareTo(object obj)
+        {
+            if (obj == null) return 1;
+            Player otherPlayer = obj as Player;
+            return this.Score.CompareTo(otherPlayer.Score);
         }
     }
 }

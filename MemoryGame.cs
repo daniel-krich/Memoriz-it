@@ -91,18 +91,19 @@ namespace MemoryCardGame
 
             PrintTable();
 
-            Player winner = Players.Single(p => p.Score == Players.Max((p) => p.Score));
-            Player[] others = Players.Where(p => p.Score != Players.Max((p) => p.Score)).ToArray();
+            Player winner = Players.Select(n => n).Max();
 
             Console.BackgroundColor = ConsoleColor.DarkMagenta;
             Console.WriteLine("\nWinner! {0} flipped {1} paires ({2} fails)", winner.Name, winner.Score, winner.Fails);
             Console.ResetColor();
 
-            foreach (Player other in others)
+            foreach (Player others in Players)
             {
+                if (others == winner)
+                    continue;
                 Console.BackgroundColor = ConsoleColor.DarkYellow;
                 Console.ForegroundColor = ConsoleColor.Black;
-                Console.WriteLine("\n{0} flipped {1} paires ({2} fails)", other.Name, other.Score, other.Fails);
+                Console.WriteLine("\n{0} flipped {1} paires ({2} fails)", others.Name, others.Score, others.Fails);
                 Console.ResetColor();
             }
 
@@ -165,10 +166,16 @@ namespace MemoryCardGame
 
                 if (FirstCard.symbol == SecondCard.symbol)
                 {
-                    Console.BackgroundColor = ConsoleColor.DarkGreen;
-                    Console.WriteLine("Goodjob, you've earned 1 point and another turn.\n");
-                    Console.ResetColor();
+                    FirstCard.Hide();
+                    SecondCard.Hide();
                     Players[CurrentPlayerMove].AddScore(1);
+
+                    if (!IsGameFinished())
+                    {
+                        Console.BackgroundColor = ConsoleColor.DarkGreen;
+                        Console.WriteLine("Goodjob, you've earned 1 point and another turn.\n");
+                        Console.ResetColor();
+                    }
                 }
                 else
                 {
@@ -197,6 +204,13 @@ namespace MemoryCardGame
                     Console.BackgroundColor = ConsoleColor.DarkYellow;
                     Console.ForegroundColor = ConsoleColor.Black;
                     Console.WriteLine("Unpause in 2.5 sec");
+                    Console.ResetColor();
+                    Thread.Sleep(2500);
+                }
+                else
+                {
+                    Console.BackgroundColor = ConsoleColor.DarkGreen;
+                    Console.WriteLine("Game finished, waiting for results...\n");
                     Console.ResetColor();
                     Thread.Sleep(2500);
                 }
@@ -330,6 +344,10 @@ namespace MemoryCardGame
                 {
                     for (int column = 0; column < MatrixMemoryGame.GetLength(1); column++)
                     {
+
+                        /*
+                         * insert spaces to make gap between the cards.
+                         */
                         for (int spaces = 0; spaces < space_between_cards; spaces++)
                         {
                             Console.Write(" ");
@@ -337,6 +355,20 @@ namespace MemoryCardGame
 
                         for (int width = 0; width < card_width; width++)
                         {
+                            /*
+                             * Hide the card with blank spaces, and continue the next iteration.
+                             */
+                            if(MatrixMemoryGame[row, column].isHidden)
+                            {
+                                Console.Write(" ");
+                                continue;
+                            }
+
+
+                            /*
+                             * if we are at the middle of the card (width and height), then insert the value of the card...
+                             * ...or the "?" symbol.
+                             */
                             if (card_width / 2 == width && card_height / 2 == height)
                             {
                                     
@@ -354,6 +386,9 @@ namespace MemoryCardGame
                                 }
                                 Console.ResetColor();
                             }
+                            /*
+                             * Top left corner of the card.
+                             */
                             else if(height == 0 && width == 0)
                             {
                                 Console.BackgroundColor = cards_color;
@@ -361,6 +396,9 @@ namespace MemoryCardGame
                                 Console.Write(row);
                                 Console.ResetColor();
                             }
+                            /*
+                             * bottom right corner of the card
+                             */
                             else if (height == card_height-1 && width == card_width-1)
                             {
                                 Console.BackgroundColor = cards_color;
@@ -368,6 +406,9 @@ namespace MemoryCardGame
                                 Console.Write(column);
                                 Console.ResetColor();
                             }
+                            /*
+                             * rest of the cards body, blank spaces with the color specified (default white)
+                             */
                             else
                             {
                                 Console.BackgroundColor = cards_color;
