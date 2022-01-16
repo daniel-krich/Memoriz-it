@@ -119,7 +119,7 @@ namespace MemoryCardGame
         /// Let the client configure the game Rows and Columns.
         /// Maximum is 10x10.
         /// </summary>
-        public void ConfigureGame()
+        private void ConfigureGame()
         {
             Console.BackgroundColor = ConsoleColor.Yellow;
             Console.ForegroundColor = ConsoleColor.Black;
@@ -163,7 +163,7 @@ namespace MemoryCardGame
         /// Compare 2 cards that has been flipped, if the symbolic value is equal then add +1 point and another turn to the current player.
         /// Otherwise move to the next player.
         /// </summary>
-        public void MakeMove()
+        private void MakeMove()
         {
 
             Card FirstCard = ChooseCardInput("Enter \"Row\" and \"Column\" for the first card (e.g: 0 0): ");
@@ -243,7 +243,7 @@ namespace MemoryCardGame
         /// <param name="text">Text that will be shown in the console with Console.Write</param>
         /// <param name="delimiter">ReadLine input delimiter to split the params</param>
         /// <returns>returns an instance to that specific card</returns>
-        public Card ChooseCardInput(string text, string delimiter = " ")
+        private Card ChooseCardInput(string text, string delimiter = " ")
         {
             Thread.Sleep(250);
 
@@ -286,7 +286,7 @@ namespace MemoryCardGame
         /// Looping through all the cards and searching for unflipped cards.
         ///</summary>
         /// <returns>True if all cards are flipped (Game finished), False otherwise (Not finished).</returns>
-        public bool IsGameFinished()
+        private bool IsGameFinished()
         {
             foreach(Card c in MatrixMemoryGame)
             {
@@ -301,7 +301,7 @@ namespace MemoryCardGame
         /// Ask the client about the amount of players.
         /// Also naming the users.
         /// </summary>
-        public void ConfigurePlayers()
+        private void ConfigurePlayers()
         {
             Console.BackgroundColor = ConsoleColor.DarkBlue;
             Console.Write("\nEnter the amount of players: ");
