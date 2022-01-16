@@ -404,7 +404,7 @@ namespace MemoryCardGame
                             /*
                              * Top left corner of the card.
                              */
-                            else if(height == 0 && width == 0)
+                            else if(height == 0 && width == 0 && !MatrixMemoryGame[row, column].isFlipped)
                             {
                                 Console.BackgroundColor = cards_color;
                                 Console.ForegroundColor = ConsoleColor.Black;
@@ -414,7 +414,7 @@ namespace MemoryCardGame
                             /*
                              * bottom right corner of the card
                              */
-                            else if (height == card_height-1 && width == card_width-1)
+                            else if (height == card_height-1 && width == card_width-1 && !MatrixMemoryGame[row, column].isFlipped)
                             {
                                 Console.BackgroundColor = cards_color;
                                 Console.ForegroundColor = ConsoleColor.Black;
