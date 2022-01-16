@@ -381,8 +381,8 @@ namespace MemoryCardGame
 
 
                             /*
-                             * if we are at the middle of the card (width and height), then insert the value of the card...
-                             * ...or the "?" symbol.
+                             * if we are at the middle of the card (width and height), then insert the value of the card if it's flipped...
+                             * ...or the "?" symbol if the card is not flipped.                          
                              */
                             if (card_width / 2 == width && card_height / 2 == height)
                             {
@@ -403,8 +403,9 @@ namespace MemoryCardGame
                             }
                             /*
                              * Top left corner of the card.
+                             * display row if card is not flipped.
                              */
-                            else if(height == 0 && width == 0 && !MatrixMemoryGame[row, column].isFlipped)
+                            else if (height == 0 && width == 0 && !MatrixMemoryGame[row, column].isFlipped)
                             {
                                 Console.BackgroundColor = cards_color;
                                 Console.ForegroundColor = ConsoleColor.Black;
@@ -412,7 +413,8 @@ namespace MemoryCardGame
                                 Console.ResetColor();
                             }
                             /*
-                             * bottom right corner of the card
+                             * bottom right corner of the card.
+                             * display column if card is not flipped.
                              */
                             else if (height == card_height-1 && width == card_width-1 && !MatrixMemoryGame[row, column].isFlipped)
                             {
