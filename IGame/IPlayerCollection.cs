@@ -1,7 +1,7 @@
-﻿using MemoryCardGame.Models;
+﻿using MemorizIt.Models;
 using System.Collections.Generic;
 
-namespace MemoryCardGame.IGame
+namespace MemorizIt.IGame
 {
     public interface IPlayerCollection
     {

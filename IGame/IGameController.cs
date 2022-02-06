@@ -1,4 +1,4 @@
-﻿namespace MemoryCardGame.IGame
+﻿namespace MemorizIt.IGame
 {
     public interface IGameController
     {

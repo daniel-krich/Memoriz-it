@@ -1,11 +1,11 @@
-﻿using MemoryCardGame.IGame;
+﻿using MemorizIt.IGame;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MemoryCardGame.UI
+namespace MemorizIt.UI
 {
     public class Displayer : IDisplayer
     {

@@ -1,4 +1,4 @@
-﻿namespace MemoryCardGame.UI
+﻿namespace MemorizIt.UI
 {
     public interface IDisplayer
     {

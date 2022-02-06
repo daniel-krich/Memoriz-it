@@ -4,11 +4,11 @@ using Microsoft.Extensions.DependencyInjection;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using MemoryCardGame.IGame;
-using MemoryCardGame.Game;
-using MemoryCardGame.UI;
+using MemorizIt.IGame;
+using MemorizIt.Game;
+using MemorizIt.UI;
 
-namespace MemoryCardGame.Core
+namespace MemorizIt.Core
 {
     public static class GameServices
     {

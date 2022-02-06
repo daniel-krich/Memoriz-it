@@ -1,6 +1,6 @@
-﻿using MemoryCardGame.Models;
+﻿using MemorizIt.Models;
 
-namespace MemoryCardGame.IGame
+namespace MemorizIt.IGame
 {
     public interface ICardCollection
     {

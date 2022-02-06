@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MemoryCardGame.Models
+namespace MemorizIt.Models
 {
     public class CardModel
     {

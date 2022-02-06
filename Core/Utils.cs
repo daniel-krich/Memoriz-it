@@ -5,7 +5,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MemoryCardGame.Core
+namespace MemorizIt.Core
 {
     public static class Utils
     {

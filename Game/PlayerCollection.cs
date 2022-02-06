@@ -1,13 +1,13 @@
-﻿using MemoryCardGame.Core;
-using MemoryCardGame.IGame;
-using MemoryCardGame.Models;
+﻿using MemorizIt.Core;
+using MemorizIt.IGame;
+using MemorizIt.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MemoryCardGame.Game
+namespace MemorizIt.Game
 {
     public class PlayerCollection : IPlayerCollection
     {

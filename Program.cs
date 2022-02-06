@@ -1,10 +1,10 @@
 ﻿using System;
 using Microsoft.Extensions.DependencyInjection;
-using MemoryCardGame.Core;
-using MemoryCardGame.Game;
-using MemoryCardGame.IGame;
+using MemorizIt.Core;
+using MemorizIt.Game;
+using MemorizIt.IGame;
 
-namespace MemoryCardGame
+namespace MemorizIt
 {
     class Program
     {
