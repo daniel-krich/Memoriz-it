@@ -13,7 +13,6 @@ namespace MemorizIt
     {
         public static void Run()
         {
-            string input;
             do
             {
                 GameServices.Configure()
@@ -22,9 +21,8 @@ namespace MemorizIt
 
 
                 Utils.ColoredMessage("\nDo you wish to play again? (y / n)", ConsoleColor.DarkMagenta);
-                input = Console.ReadLine();
 
-            } while (input.ToLower() == "y");
+            } while (Console.ReadLine().ToLower() == "y");
         }
     }
 }
