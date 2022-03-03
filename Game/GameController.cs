@@ -1,5 +1,5 @@
 ﻿using MemorizIt.Core;
-using MemorizIt.IGame;
+using MemorizIt.Contracts;
 using MemorizIt.Models;
 using MemorizIt.UI;
 using System;

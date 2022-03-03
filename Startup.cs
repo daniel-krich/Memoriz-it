@@ -1,5 +1,5 @@
 ﻿using MemorizIt.Core;
-using MemorizIt.IGame;
+using MemorizIt.Contracts;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;

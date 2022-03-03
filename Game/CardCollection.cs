@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MemorizIt.Core;
-using MemorizIt.IGame;
+using MemorizIt.Contracts;
 using MemorizIt.Models;
 
 namespace MemorizIt.Game

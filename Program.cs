@@ -2,7 +2,7 @@
 using Microsoft.Extensions.DependencyInjection;
 using MemorizIt.Core;
 using MemorizIt.Game;
-using MemorizIt.IGame;
+using MemorizIt.Contracts;
 
 namespace MemorizIt
 {

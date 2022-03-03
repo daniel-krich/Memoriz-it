@@ -1,4 +1,4 @@
-﻿namespace MemorizIt.IGame
+﻿namespace MemorizIt.Contracts
 {
     public interface IGameController
     {

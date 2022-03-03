@@ -1,7 +1,7 @@
 ﻿using MemorizIt.Models;
 using System.Collections.Generic;
 
-namespace MemorizIt.IGame
+namespace MemorizIt.Contracts
 {
     public interface IPlayerCollection
     {
